@@ -1,0 +1,44 @@
+:root {
+  color-scheme: light;
+  --ink: #23262f;
+  --ink-soft: #5d5866;
+  --paper: #fbf6ec;
+  --chip: rgba(255, 255, 255, 0.86);
+  --seal: #b3362b;
+  --sky: #efe6dc;
+  --font-body: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Bungee', 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-script: 'Dancing Script', 'Segoe Script', cursive;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--sky);
+  font-family: var(--font-body);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+#app { position: fixed; inset: 0; }
+
+#scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+}
+#scene:active { cursor: grabbing; }
+
+button { font: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

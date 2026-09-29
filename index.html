@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Seoul của Việt · Nguyễn Thế Việt</title>
+    <meta name="description" content="Portfolio của Nguyễn Thế Việt, sinh viên Phân tích dữ liệu lớn tại Học viện Chính sách và Phát triển, dựng thành một Seoul thu nhỏ bằng 3D." />
+    <meta name="theme-color" content="#efe6dc" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Playfair+Display:wght@700&family=Bungee&family=Dancing+Script:wght@700&display=swap&subset=vietnamese" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene" aria-label="Bản đồ 3D Seoul thu nhỏ"></canvas>
+      <canvas class="petals" id="petals" aria-hidden="true"></canvas>
+
+      <button class="hud music" id="music" type="button" aria-pressed="false" aria-label="Bật nhạc nền">
+        <svg class="music__note" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l11-2v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /><circle cx="6.5" cy="18" r="2.6" fill="currentColor" /><circle cx="17.5" cy="16" r="2.6" fill="currentColor" /></svg>
+        <span class="music__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+
+      <header class="hud brand" id="brand" role="button" tabindex="0" aria-label="Về toàn cảnh">
+        <b>Nguyễn Thế Việt</b>
+        <span>Phân tích dữ liệu lớn · APD</span>
+      </header>
+
+      <p class="hud hint" id="hint">
+        <b>Mẹo</b> Kéo để xoay · chuột phải hoặc Shift + kéo để di chuyển · cuộn để phóng to · phím 0–6 để chọn khu
+      </p>
+
+      <nav class="hud zone-nav" id="zone-nav" aria-label="Các khu"></nav>
+
+      <button class="hud file-button" id="file-button" type="button" aria-label="Mở hồ sơ khu này">
+        <svg class="file-button__icon" viewBox="0 0 64 50" aria-hidden="true">
+          <path d="M3 9a5 5 0 0 1 5-5h16l6 6h26a5 5 0 0 1 5 5v28a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z" fill="#e0a43c" />
+          <rect x="9" y="12" width="44" height="30" rx="2" fill="#fff" transform="rotate(-4 31 27)" />
+          <path d="M14 18h26M14 23h32M14 28h22" stroke="#9fb3cc" stroke-width="2" transform="rotate(-4 31 27)" />
+          <path d="M3 19a4 4 0 0 1 4-4h50a4 4 0 0 1 4 4l-2 24a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z" fill="#f2bc55" />
+        </svg>
+        <span class="file-button__label">Mở hồ sơ</span>
+      </button>
+
+      <div class="dossier" id="dossier" role="dialog" aria-modal="true" aria-label="Hồ sơ" hidden>
+        <div class="dossier__inner" id="dossier-inner"></div>
+      </div>
+
+      <div class="loader" id="loader" role="status">
+        <b>Seoul của Việt</b>
+        <span id="loader-text">Đang dựng thành phố…</span>
+        <i class="loader__spin" aria-hidden="true"></i>
+      </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
